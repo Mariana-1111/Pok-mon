@@ -27,12 +27,14 @@
 </style>
 <body>
     <div >
-        <img class="imagen text-center mb-5" src="{{asset('assets/pokemon.png')}}"  alt="logo">
+        <img class="imagen mb-5" src="{{asset('assets/pokemon.png')}}"  alt="logo">
     </div>
     <div >        
-        <a href="{{ route('login') }}" class="login">Log in</a>
-        
-        <a href="{{route('register')}}" class="register">Register</a>
+        <!-- welcome.blade.php -->
+
+<a href="{{ route('login') }}" class="login">Login</a>
+<a href="{{ route('register.create') }}" class="register">Register</a>
+
     </div>
 </body>
 </html>

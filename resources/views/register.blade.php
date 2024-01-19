@@ -30,7 +30,7 @@
                                         <img src="{{asset('assets/pokemon.png')}}" style="width: 185px;" alt="logo">
                                     </div>
 
-                                    <form action="{{route('register')}}" method="post">
+                                    <form action="{{route('register.create')}}" method="post">
                                         @csrf
                                         <p>Registrarse</p>
 
