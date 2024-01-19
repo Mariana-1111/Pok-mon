@@ -7,11 +7,10 @@
     <title>Listado de Pokémon</title>
 
     <style>
-    
         .imagen {
-        width: 50%;
-        margin-left: 25%;
-        margin-top: 5%;
+            width: 50%;
+            margin-left: 25%;
+            margin-top: 5%;
         }
 
         .button-container {

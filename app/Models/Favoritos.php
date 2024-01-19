@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Favoritos extends Model
 {
     use HasFactory;
+
+    protected $table = 'favoritos';
+
+    protected $fillable = [
+        'user_id',
+        'pokemon_id',
+    ];
+
+    public $timestamps = false;
 }
+

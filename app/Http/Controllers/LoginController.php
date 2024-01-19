@@ -9,24 +9,24 @@ class LoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('login'); 
+        return view('login');
     }
 
     public function login(Request $request)
     {
-        
+
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
 
-      
+
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // La autenticación fue exitosa
-            return redirect()->intended('/home'); 
+            return redirect()->intended('/home');
         }
 
-      
+
         return back()->withErrors(['email' => 'Credenciales incorrectas'])->withInput($request->only('email'));
     }
 
