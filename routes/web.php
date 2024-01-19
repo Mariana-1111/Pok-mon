@@ -4,6 +4,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PokemonController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +33,8 @@ Route::post('/register', [RegistroController::class, 'store'])->name('register.s
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/pokemons', [PokemonController::class, 'index']);
+
+Route::get('/pokemon', [PokemonController::class, 'index'])->name('pokemon.index');
+
