@@ -23,7 +23,7 @@ class LoginController extends Controller
       
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // La autenticación fue exitosa
-            return redirect()->intended('/dashboard'); // Ajusta la ruta según tus necesidades
+            return redirect()->intended('/home'); 
         }
 
       

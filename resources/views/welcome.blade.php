@@ -7,34 +7,45 @@
     <title>Document</title>
 </head>
 <style>
-.imagen{
-    width: 50%;
-    margin-left: 25%;
-    margin-top:5%
-}
-.login,
-.register
-{
-    border-bottom: none;
-}
-.login{
-    margin-left:50%;
-}
-.register{
-    margin-left:50%;
-}
+    .imagen {
+        width: 50%;
+        margin-left: 25%;
+        margin-top: 5%;
+    }
 
+    .button-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 5px;
+        text-decoration: none;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .login {
+        background-color: black;
+    }
+
+    .register {
+        background-color: black;
+    }
 </style>
+
 <body>
-    <div >
-        <img class="imagen mb-5" src="{{asset('assets/pokemon.png')}}"  alt="logo">
+    <div>
+        <img class="imagen mb-5" src="{{asset('assets/pokemon.png')}}" alt="logo">
     </div>
-    <div >        
-        <!-- welcome.blade.php -->
-
-<a href="{{ route('login') }}" class="login">Login</a>
-<a href="{{ route('register.create') }}" class="register">Register</a>
-
+    <div class="button-container">
+        <a href="{{ route('login') }}" class="button login">Login</a>
+        <a href="{{ route('register.create') }}" class="button register">Register</a>
     </div>
 </body>
+
 </html>
