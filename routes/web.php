@@ -34,7 +34,6 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/pokemons', [PokemonController::class, 'index']);
 
 Route::get('/pokemon', [PokemonController::class, 'index'])->name('pokemon.index');
 
@@ -42,5 +41,3 @@ Route::get('/pokemon/favoritos', 'PokemonController@favoritos')->name('pokemon.f
 Route::post('/pokemon/add-to-favoritos/{pokemonId}', 'PokemonController@addToFavoritos')->name('pokemon.addToFavoritos');
 Route::post('/pokemon/remove-from-favoritos/{pokemonId}', 'PokemonController@removeFromFavoritos')->name('pokemon.removeFromFavoritos');
 
-Route::post('/pokemon/add-to-favoritos/{pokemonId}', 'PokemonController@addToFavoritos')->name('pokemon.addToFavoritos');
-Route::post('/pokemon/remove-from-favoritos/{pokemonId}', 'PokemonController@removeFromFavoritos')->name('pokemon.removeFromFavoritos');

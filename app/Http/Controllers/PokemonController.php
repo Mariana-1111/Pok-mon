@@ -47,9 +47,9 @@ class PokemonController extends Controller
         return back()->with('success', '¡Pokémon eliminado de favoritos!');
     }
     public function __construct()
-    {
-        $this->middleware('auth');
-    }
+{
+    $this->middleware('auth');
+}
 
 }
 

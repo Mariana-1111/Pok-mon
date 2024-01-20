@@ -34,16 +34,19 @@
     <h1 class="titulo">Pokémon</h1>
 
     <table>
-        @foreach (collect($pokemons)->chunk(10) as $row)
+
+        @foreach (collect($pokemons)->chunk(7) as $row)
         <tr>
             @foreach ($row as $pokemon)
             <td>
                 <img class="poke mb-5" src="{{ $pokemon['image'] }}" alt="{{ $pokemon['name'] }}">
                 <p>{{ $pokemon['name'] }}</p>
+
                 <form action="{{ route('pokemon.addToFavoritos', $pokemon['id']) }}" method="POST">
                     @csrf
                     <button type="submit">Agregar a favoritos</button>
                 </form>
+
             </td>
             @endforeach
         </tr>
