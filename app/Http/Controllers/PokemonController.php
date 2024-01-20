@@ -36,7 +36,7 @@ class PokemonController extends Controller
         $user = auth()->user();
         $user->favoritos()->attach($pokemonId);
     
-        return back()->with('success', '¡Pokémon añadido a favoritos!');
+        return redirect()->route('pokemon.favoritos')->with('success', '¡Pokémon añadido a favoritos!');
     }
     
     public function removeFromFavoritos($pokemonId)
