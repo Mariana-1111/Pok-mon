@@ -1,10 +1,10 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
-use App\Models\Favoritos;
 
 
 class PokemonController extends Controller
@@ -12,32 +12,38 @@ class PokemonController extends Controller
 
     public function index()
     {
+        $pokemonId = ['id']; 
         $client = new Client();
         $response = $client->get('https://pokeapi.co/api/v2/pokemon?limit=30');
         $pokemons = json_decode($response->getBody(), true)['results'];
-
+    
         foreach ($pokemons as &$pokemon) {
             $detailsResponse = $client->get($pokemon['url']);
             $pokemonDetails = json_decode($detailsResponse->getBody(), true);
             $pokemon['id'] = $pokemonDetails['id'];
             $pokemon['image'] = $pokemonDetails['sprites']['front_default'];
         }
-
-        return view('pokemon.index', compact('pokemons'));
+        
+    
+        return view('pokemon.index', compact('pokemonId', 'pokemons'));
     }
+    
+
     public function favoritos()
     {
         $userFavoritos = auth()->user()->favoritos;
         return view('pokemon.favoritos', compact('userFavoritos'));
     }
     
-    public function addToFavoritos($pokemonId)
+    public function addToFavoritos(Request $request, $pokemonId)
     {
         $user = auth()->user();
+    
         $user->favoritos()->attach($pokemonId);
     
-        return redirect()->route('pokemon.favoritos')->with('success', '¡Pokémon añadido a favoritos!');
+        return redirect()->route('pokemon.index')->with('success', '¡Pokémon añadido a favoritos!');
     }
+    
     
     public function removeFromFavoritos($pokemonId)
     {

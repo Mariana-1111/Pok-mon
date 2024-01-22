@@ -17,5 +17,9 @@ class Favoritos extends Model
     ];
 
     public $timestamps = false;
-}
 
+    public function usuarios()
+    {
+        return $this->belongsToMany(User::class, 'user_pokemon', 'pokemon_id', 'user_id');
+    }
+}
