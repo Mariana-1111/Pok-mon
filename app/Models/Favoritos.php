@@ -9,7 +9,6 @@ class Favoritos extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
         'user_id',
         'pokemon_id',
@@ -17,8 +16,8 @@ class Favoritos extends Model
 
     public $timestamps = false;
 
-    public function usuarios()
+    public function pokemones()
     {
-        return $this->belongsToMany(User::class, 'user_pokemon','user_id', 'pokemon_id');
+        return view('pokemon.favoritos', compact('userFavoritos'));
     }
 }

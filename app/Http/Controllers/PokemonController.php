@@ -26,13 +26,11 @@ class PokemonController extends Controller
     }
 
     public function favoritos()
-{
-    $user = auth()->user();
-    $userFavoritos = $user->favoritos; 
-    
-    return view('pokemon.favoritos', compact('userFavoritos'));
-}
-
+    {
+        $user = auth()->user();
+        $userFavoritos = $user->favoritos()->with('pokemon')->get();
+        return view('pokemon.favoritos', compact('userFavoritos'));
+    }
     
     public function addToFavoritos(Request $request, $pokemonId)
     {
@@ -42,8 +40,6 @@ class PokemonController extends Controller
 
         return redirect()->route('pokemon.index')->with('success', '¡Pokémon añadido a favoritos!');
     }
-
-    // Otras funciones del controlador...
 
     public function removeFromFavoritos($pokemonId)
     {
