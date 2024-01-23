@@ -9,7 +9,6 @@ class Favoritos extends Model
 {
     use HasFactory;
 
-    protected $table = 'favoritos';
 
     protected $fillable = [
         'user_id',
@@ -20,6 +19,6 @@ class Favoritos extends Model
 
     public function usuarios()
     {
-        return $this->belongsToMany(User::class, 'user_pokemon', 'pokemon_id', 'user_id');
+        return $this->belongsToMany(User::class, 'user_pokemon','user_id', 'pokemon_id');
     }
 }

@@ -27,11 +27,26 @@
             padding: 10px;
             text-align: center;
         }
+
+        .btn-favoritos {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
     <h1 class="titulo">Pokémon</h1>
+
+    <a href="{{ route('pokemon.favoritos') }}" class="btn-favoritos">Ver Favoritos</a>
 
     <table>
         @foreach (collect($pokemons)->chunk(7) as $row)

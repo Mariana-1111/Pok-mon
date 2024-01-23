@@ -6,24 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- resources/views/pokemon/favorites.blade.php -->
 
-@extends('layouts.app')
 
-@section('content')
     <h1>Mis Pokémon Favoritos</h1>
 
-    @foreach ($userFavorites as $favorite)
+    @foreach ($userFavoritos as $favorite)
         <div>
-            <p>{{ $favorite->pokemon->name }}</p>
-            <!-- Puedes mostrar más detalles o imágenes del Pokémon aquí -->
+            <p>{{ $favorite->id }}</p>
             <form method="POST" action="{{ route('pokemon.removeFromFavorites', $favorite->pokemon->id) }}">
-                @csrf
                 <button type="submit">Quitar de Favoritos</button>
             </form>
         </div>
     @endforeach
-@endsection
 
 </body>
 </html>
